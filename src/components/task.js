@@ -83,5 +83,3 @@ export default class Task {
     this._element = null;
   }
 }
-
-export {createTaskTemplate};
