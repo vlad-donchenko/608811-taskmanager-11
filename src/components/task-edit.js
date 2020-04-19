@@ -1,6 +1,6 @@
 import {COLORS, DAYS, MONTH_NAMES} from "../const";
 import AbstractComponent from "./AbstractComponent";
-import {formatTime, createElement} from "../utils";
+import {formatTime, createElement} from "../utils/common";
 
 const createColorsMarkup = (colors, currentColor) => {
   return colors.slice().map((color, index) => {

@@ -1,6 +1,6 @@
 import {MONTH_NAMES} from "../const";
 import AbstractComponent from "./AbstractComponent";
-import {formatTime} from "../utils";
+import {formatTime} from "../utils/common";
 
 const createTaskTemplate = (task) => {
   const {description, color, isFavorite, isArchive, dueDate, repeatingDays} = task;

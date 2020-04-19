@@ -10,7 +10,7 @@ import TasksComponent from "./components/tasks";
 import NoTaskComponent from "./components/no-task";
 import {generateTasks} from "./mock/task";
 import {getFilters} from "./mock/filter";
-import {render, RenderPosition} from "./utils";
+import {RenderPosition, render} from "./utils/render";
 
 const renderTask = (taskListElement, task) => {
   const replaceTaskToEdit = () => {
