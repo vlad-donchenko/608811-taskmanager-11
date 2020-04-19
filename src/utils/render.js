@@ -11,7 +11,6 @@ const createElement = (template) => {
 };
 
 const render = (container, component, place) => {
-  console.log(container);
   switch (place) {
     case RenderPosition.AFTERBEGIN:
       container.prepend(component.getElement());
