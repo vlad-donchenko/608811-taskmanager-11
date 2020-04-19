@@ -10,15 +10,15 @@ import TasksComponent from "./components/tasks";
 import NoTaskComponent from "./components/no-task";
 import {generateTasks} from "./mock/task";
 import {getFilters} from "./mock/filter";
-import {RenderPosition, render} from "./utils/render";
+import {RenderPosition, render, replace, remove} from "./utils/render";
 
 const renderTask = (taskListElement, task) => {
   const replaceTaskToEdit = () => {
-    taskListElement.replaceChild(taskEditComponent.getElement(), taskComponent.getElement());
+    replace(taskEditComponent, taskComponent);
   };
 
   const replaceEditToTask = () => {
-    taskListElement.replaceChild(taskComponent.getElement(), taskEditComponent.getElement());
+    replace(taskComponent, taskEditComponent);
   };
 
   const onEscKeyDown = (evt) => {
@@ -76,8 +76,7 @@ const renderBoard = (boardComponent, tasks) => {
     tasks.slice(prevTasksCount, showingTasksCount)
       .forEach((task) => renderTask(taskListElement, task));
     if (showingTasksCount >= tasks.length) {
-      loadMoreButtonComponent.getElement().remove();
-      loadMoreButtonComponent.removeElement();
+      remove(loadMoreButtonComponent);
     }
   });
 };
