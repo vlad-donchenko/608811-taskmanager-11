@@ -62,7 +62,7 @@ const getSortedTasks = (tasks, sortType, from, to) => {
       sortedTasks = showingTasks;
       break;
   }
-  console.log(sortedTasks);
+
   return sortedTasks.slice(from, to);
 };
 
