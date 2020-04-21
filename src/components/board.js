@@ -1,4 +1,4 @@
-import AbstractComponent from "./AbstractComponent";
+import AbstractComponent from "./abstract-component";
 
 const createBoardTemplate = () => {
   return (`<section class="board container"></section>`);

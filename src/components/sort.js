@@ -1,4 +1,4 @@
-import AbstractComponent from "./AbstractComponent";
+import AbstractComponent from "./abstract-component";
 
 export const SortType = {
   DATE_DOWN: `date-down`,
@@ -25,6 +25,10 @@ class Sort extends AbstractComponent {
 
   getTemplate() {
     return createSortTemplate();
+  }
+
+  getSortType() {
+    return this._currentSortType;
   }
 
   setSortTypeChangeHandler(handler) {
