@@ -80,6 +80,7 @@ class BoardController {
       if (showingTasksCount >= tasks.length) {
         return;
       }
+
       remove(this._loadMoreButtonComponent);
       render(container, this._loadMoreButtonComponent, RenderPosition.BEFOREEND);
 
