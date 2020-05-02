@@ -8,7 +8,7 @@ const createTaskTemplate = (task) => {
   const archiveButtonInActiveClass = isArchive ? `` : `card__btn--disabled`;
   const favoriteButtonInActiveClass = isFavorite ? `` : `card__btn--disabled`;
 
-  const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, Date.now());
+  const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
   const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
