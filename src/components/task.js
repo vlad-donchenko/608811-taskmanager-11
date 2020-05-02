@@ -1,13 +1,14 @@
 import AbstractComponent from "./abstract-component";
-import {formatTime, formatDate} from "../utils/common.js";
+import {formatTime, formatDate, isOverdueDate} from "../utils/common.js";
+import {encode} from "he";
 
 const createTaskTemplate = (task) => {
-  const {description, color, isFavorite, isArchive, dueDate, repeatingDays} = task;
+  const {description: notSanitizedDescription, color, isFavorite, isArchive, dueDate, repeatingDays} = task;
 
   const archiveButtonInActiveClass = isArchive ? `` : `card__btn--disabled`;
   const favoriteButtonInActiveClass = isFavorite ? `` : `card__btn--disabled`;
 
-  const isExpired = dueDate instanceof Date && dueDate < Date.now();
+  const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
   const deadlineClass = isExpired ? `card--deadline` : ``;
 
   const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
@@ -16,6 +17,7 @@ const createTaskTemplate = (task) => {
   const isDateShowing = !!dueDate;
   const date = isDateShowing ? formatDate(dueDate) : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
+  const description = encode(notSanitizedDescription);
 
   return (
     `<article class="card card--${color} ${deadlineClass} ${repeatingDaysClass}">
